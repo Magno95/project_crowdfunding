@@ -16,3 +16,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   filter: invert(0.8);
 }
+.donatorsContainer{
+  position: relative;
+}
+
+.donatorsContainer::after {
+  content: '';
+  height: 170px;
+  background: linear-gradient(0deg,#13131a, transparent);
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+}

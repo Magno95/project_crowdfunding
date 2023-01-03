@@ -7,7 +7,9 @@ import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract('0xf59A1f8251864e1c5a6bD64020e3569be27e6AA9');
+  const { contract } = useContract('0xdA489b66F8152DC3dFE9CcdBaA3CF89346515e99');
+  //mine: 0xdA489b66F8152DC3dFE9CcdBaA3CF89346515e99
+  //tuto: 0xf59A1f8251864e1c5a6bD64020e3569be27e6AA9
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
@@ -56,7 +58,7 @@ export const StateContextProvider = ({ children }) => {
   }
 
   const donate = async (pId, amount) => {
-    const data = await contract.call('donateToCampaign', pId, { value: ethers.utils.parseEther(amount)});
+    const data = await contract.call('donateCampaign', pId, { value: ethers.utils.parseEther(amount)});
 
     return data;
   }

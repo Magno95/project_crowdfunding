@@ -8,10 +8,10 @@ import App from './App';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+ 
 root.render(
   <ThirdwebProvider desiredChainId={ChainId.Goerli}> 
-    <Router>
+    <Router  basename='/projects/web3/crowdfunding/'>
       <StateContextProvider>
         <App />
       </StateContextProvider>

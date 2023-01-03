@@ -11,6 +11,17 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
     navigate(`/campaign-details/${campaign.title}`, { state: campaign })
   }
   
+  const reverseAndPrint = (campaigns) => {
+    let campaignsReversed =  campaigns.reverse()
+    return (
+      campaignsReversed.map((campaign) => <FundCard 
+        key={campaign.pId}
+        {...campaign}
+        handleClick={() => handleNavigate(campaign)}
+      />)
+     )
+   }
+
   return (
     <div>
       <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({campaigns.length})</h1>
@@ -26,11 +37,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
           </p>
         )}
 
-        {!isLoading && campaigns.length > 0 && campaigns.map((campaign) => <FundCard 
-          key={campaign.id}
-          {...campaign}
-          handleClick={() => handleNavigate(campaign)}
-        />)}
+        {!isLoading && campaigns.length > 0 && reverseAndPrint(campaigns)}
       </div>
     </div>
   )
